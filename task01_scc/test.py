@@ -14,8 +14,19 @@ path_db_categories -- write path of json database of categorical features
 Return: inference object
 """
 
-inference = InferenceEngine("models/xgb_scc_perform_v10.pkl", 
-                            "datasets/db_features.json")
+inference = InferenceEngine(path_model = "models/lgbm_scc_perform_v10.pkl", 
+                            path_db_categories = "datasets/db_features.json")
+
+# check metadata
+print(inference.feature_names)
+
+# preprocessing
+"""
+Keyword arguments:
+data -- put entire dataset, filtering missing values
+Return: features (X) and outputs (Y)
+"""
+x, y = inference.prepare_df(data)
 
 # to get prediction
 """sumary_line
@@ -25,5 +36,5 @@ data -- put data frame corresponded by dataset after filter rows with null value
 Return: vector of predictions
 """
 
-y_pred = inference.predict(data)
+y_pred = inference.predict(x)
 print(y_pred)
