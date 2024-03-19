@@ -118,7 +118,7 @@ class Preprocessor:
         data = data.drop(columns = ["Submit", "Start", "Timelimit", "Elapsed"])
         
         # one-hot encoding for categorical variables
-        list_cats = [key for key in self.db_categories.keys() if key!="metadata"]
+        list_cats = [key for key in self.db_categories.keys() if key!="Metadata"]
 
         for category in list_cats:
             data =self.encoding_category(data, category)
