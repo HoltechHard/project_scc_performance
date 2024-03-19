@@ -1,0 +1,40 @@
+METADATA - SUPERCOMP INFORMATION (IN RUSSIAN)
+---------------------------------
+
+UID - id пользователя
+GID - id группы
+Area - предметная область(определена по группе)
+JobName - имя задачи, указанное пользователем
+Partition - кластер на котором запускалась задача
+ReqNodes - запрошенное число узлов
+ReqCPUS - запрошенное число процессоров
+Timelimit - пользовательская оценка времени выполнения задачи
+Submit - дата, когда задача была загружена в систему
+Start -  дата, когда задача была запущена на исполнение планировщиком
+Priority - приоритет задачи
+Elapsed - фактическое время исполнения задачи (целевая переменная Y)
+State, ExitCode - информация о том, как задача завершилась (успешно, была снята и т.д.)
+
+METADATA - SUPERCOMP INFORMATION (IN ENGLISH)
+----------------------------------------------
+
+Id - index
+UID - user id                                                               [DROP]
+GID - group id                                                              [DROP]
+Area - subject area (defined by group)                                      [categorical -> OK]
+JobName - task name specified by the user                                   [categorical -> DROP]
+Partition - the cluster on which the task was launched                      [categorical -> OK]
+ReqNodes - requested number of nodes                                        [numerical]
+ReqCPUS - requested number of processors                                    [numerical]
+Timelimit - user estimate of task completion time                           [encoding time -> OK]
+Submit - date when the task was uploaded to the system                      [encoding date -> OK]
+Start - the date when the task was launched for execution by the scheduler  [encoding date -> OK]
+Priority - task priority                                                    [numerical -> OK]
+Elapsed - actual task execution time (target variable Y)                    [encoding time -> OK]
+State - information about how the task completed (successfully, was canceled, etc.)   [categorical -> OK]
+ExitCode - code generated after some scc task                               [categorical -> DROP]
+
+Datasets
+---------
+
+scc_data.csv
