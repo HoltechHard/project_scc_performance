@@ -1,7 +1,7 @@
 # Project SCC time performance
 
 ### Task 01  
-Benchmark of regression models to predict computing resource usage time in nodes of SCC Polytech  
+Benchmark of regression models to predict real time using of computational resources in SCC Polytech
 
 * Models:
   The models can download in the next link:  
