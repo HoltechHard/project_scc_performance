@@ -1,0 +1,16 @@
+===============================================
+|       INITIAL COMMANDS FOR ENVIRONMENT      |
+===============================================
+
+1) create environment 
+
+$ python -m venv exp_env
+
+2) initialize the virtual environment 
+
+$ .\exp_env\Scripts\activate 
+
+3) install all required libraries 
+
+$ pip install -r requirements.txt 
+$ pip install ipykernel
