@@ -1,0 +1,1 @@
+{"Area": ["astrophys", "phys", "mech", "energ", "mach", "radiophys", "biophys", "geophys", "bioinf", "it"], "Partition": ["tornado", "tornado-k40", "g2", "cascade", "nv"], "State": ["CANCELLED", "TIMEOUT", "COMPLETED", "FAILED", "NODE_FAIL", "OUT_OF_MEMORY"]}
