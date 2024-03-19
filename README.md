@@ -16,5 +16,6 @@ Benchmark of regression models to predict computing resource usage time in nodes
   - Jupyter notebook with MLOps: task01_scc_perform_v6.ipynb  
   - File example to use inference engine: test.py  
 * Results:
+    
   ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/a0907c04-64c1-469d-8dee-06d652cbeb22)
 
