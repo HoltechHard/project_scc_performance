@@ -6,7 +6,7 @@ from datetime import datetime
 
 class Preprocessor:
     def __init__(self, path_db_categories):
-        self.path_db_categories = path_db_categories     
+        self.path_db_categories = path_db_categories
         self.db_categories = self.load_dictionary()
 
     # function to encoding date
@@ -25,7 +25,6 @@ class Preprocessor:
         dates_mod = pd.to_datetime(data[name_col])
         
         for i in range(len(data)):
-            #tmp_frame.loc[i] = 0
             tmp_frame.loc[i, f"{name_col}Year{dates_mod[i].year}"] = 1
             tmp_frame.loc[i, f"{name_col}Month{calendar.month_name[dates_mod[i].month]}"] = 1
             tmp_frame.loc[i, f"{name_col}DayofWeek{calendar.day_name[dates_mod[i].day_of_week]}"] = 1
@@ -119,16 +118,16 @@ class Preprocessor:
         data = data.drop(columns = ["Submit", "Start", "Timelimit", "Elapsed"])
         
         # one-hot encoding for categorical variables
-        list_cats = list(self.db_categories.keys())
+        list_cats = [key for key in self.db_categories.keys() if key!="metadata"]
 
         for category in list_cats:
             data =self.encoding_category(data, category)
         # drop the original preprocessed columns
-        data = data.drop(columns = list_cats)    
-        print(data.columns)
+        data = data.drop(columns = list_cats)        
 
         # split x and y
         x = data.drop(columns = ["ElapsedTsec"])
         y = data["ElapsedTsec"]
 
         return x, y
+    
