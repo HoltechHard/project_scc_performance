@@ -36,4 +36,4 @@ class InferenceEngine:
     def predict(self, x) -> pd.Series:
         print("generation of predictions...")
         y_pred = self.model.predict(x)
-        return y_pred
+        return pd.Series(y_pred)
