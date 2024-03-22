@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import json
 import calendar
+import time
 from datetime import datetime
 
 class Preprocessor:
@@ -21,13 +22,15 @@ class Preprocessor:
         # temporal dataframe
         tmp_cols = year_variants + month_variants + dayw_variants
         tmp_frame = pd.DataFrame(np.zeros((len(data), len(tmp_cols))), columns = tmp_cols)        
+        tmp_frame.index = data.index
         # generate datetime
         dates_mod = pd.to_datetime(data[name_col])
-        
-        for i in range(len(data)):
-            tmp_frame.loc[i, f"{name_col}Year{dates_mod[i].year}"] = 1
-            tmp_frame.loc[i, f"{name_col}Month{calendar.month_name[dates_mod[i].month]}"] = 1
-            tmp_frame.loc[i, f"{name_col}DayofWeek{calendar.day_name[dates_mod[i].day_of_week]}"] = 1
+        dates_mod.index = data.index
+
+        for i, date_val in dates_mod.items():
+            tmp_frame.loc[i, f"{name_col}Year{date_val.year}"] = 1
+            tmp_frame.loc[i, f"{name_col}Month{calendar.month_name[date_val.month]}"] = 1
+            tmp_frame.loc[i, f"{name_col}DayofWeek{calendar.day_name[date_val.day_of_week]}"] = 1
 
         # concatenate data-frames
         data = pd.concat([data, tmp_frame], axis = 1, ignore_index = False)
@@ -91,17 +94,21 @@ class Preprocessor:
     def encoding_category(self, data, category):
         col_instances = [f"{category}{i}" for i in self.db_categories[category]]        
         tmp_df = pd.DataFrame(np.zeros((len(data), len(col_instances))), columns = col_instances)
-        for i in range(len(data)):            
-            tmp_df.loc[i, f"{category}{data[category][i]}"] = 1
+        tmp_df.index = data.index 
+
+        for i, cat_val in data[category].items(): 
+            tmp_df.loc[i, f"{category}{cat_val}"] = 1
         # concatenate data-frames
         data = pd.concat([data, tmp_df], axis = 1, ignore_index = False)
 
         return data
     
     # final pipeline for data preprocessing
-    def preprocessing_pipeline(self, data):                    
+    def preprocessing_pipeline(self, data):           
+        # start time
+        start_t = time.time()         
         # drop Id, UID, GID
-        data = data.drop(columns = ["Id", "UID", "GID", "JobName", "ExitCode"])
+        data = data.drop(columns = ["UID", "GID", "JobName", "ExitCode"])
         # encode the Submit dates
         data = self.encoding_date(data, "Submit")
         # encode the Start dates
@@ -118,16 +125,20 @@ class Preprocessor:
         data = data.drop(columns = ["Submit", "Start", "Timelimit", "Elapsed"])
         
         # one-hot encoding for categorical variables
-        list_cats = [key for key in self.db_categories.keys() if key!="Metadata"]
+        list_cats = [key for key in self.db_categories.keys() if key!="metadata"]
 
         for category in list_cats:
             data =self.encoding_category(data, category)
         # drop the original preprocessed columns
-        data = data.drop(columns = list_cats)        
+        data = data.drop(columns = ["Unnamed: 0"] + list_cats)
 
         # split x and y
         x = data.drop(columns = ["ElapsedTsec"])
         y = data["ElapsedTsec"]
+
+        # count time
+        end_t = time.time()
+        print(f"Time of preprocessing {end_t - start_t}")
 
         return x, y
     
