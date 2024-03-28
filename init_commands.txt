@@ -14,3 +14,26 @@ $ .\exp_env\Scripts\activate
 
 $ pip install -r requirements.txt 
 $ pip install ipykernel
+
+4) git command to increase the buffer size to 500 Mb 
+
+$ git config http.postBuffer 524288000
+
+5) intialize django backend 
+
+$ django-admin startproject app_scc_performance
+$ cd app_scc_performance
+
+6) create application folder
+
+$ python manage.py startapp masterApp
+$ python manage.py migrate
+
+7) command to define root paths for static and media files 
+
+$ python manage.py collectstatic
+
+8) run web page
+
+$ python manage.py runserver
+
