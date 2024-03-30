@@ -1,0 +1,102 @@
+<!-- inheritance from template -->
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- content for index.html -->
+{% block content %}
+<div class="container">
+    <!-- Head Jumbotron -->
+    <div class="p-2 mb-4 bg-light rounded-3 text-center">
+        <div class="container-fluid py-2">
+          <h3 class="display-5 fw-bold">AI-SCC Polytech</h3>
+          <p class="col-md-8 fs-4 text-center mx-auto">
+            AI-system to predict time use of SCC resources
+          </p>
+        </div>
+    </div>
+
+    <!-- Formulary -->
+    <div class="card">
+        <div class="card-header">Prediction System</div>
+        <div class="card-body">
+            <h5 class="card-title">SCC Time Prediction</h5><br>
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="col-md-6">
+                    <p class="card-text">Type Model</p>
+                    <select id="typeModel" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected>--- select type of model ---</option>
+                        <option value="1">xgboost</option>
+                        <option value="2">lightgbm</option>                
+                    </select>
+                </div>                
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="card-text">Upload file for Model</p>                    
+                        <input type="file" id="fileModel" name="fileModel">
+                    </div>
+                    <div class="col-md-4">
+                        <p class="card-text">Upload file for Metadata</p>
+                        <input type="file" id="fileMetadata" name="fileMetadata">
+                    </div>
+                    <div class="col-md-4">
+                        <p class="card-text">Upload file for Data to predict</p>
+                        <input type="file" id="fileData" name="fileData">
+                    </div>                    
+                </div>                
+                <br><br>
+                <button type="submit" id="btnPredict" class="btn btn-primary">Predict</button>                
+            </form>
+            <input type="hidden" id="resultPath" name="resultPath">
+        </div>
+    </div>
+    <br><br>
+    <!-- Metric Results -->
+    <div class="card">
+        <div class="card-header">Metrics</div>
+        <div class="card-body">
+            <h5 class="card-title">Metrics of Model Performance</h5><br>
+            <div class="col-md-6">
+                <table id="tblMetrics" class="table">
+                    <thead>
+                        <tr>
+                            <th>Dataset</th>
+                            <th>Model</th>
+                            <th>R-MSE</th>
+                            <th>R2 Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- metrics automatically fill -->
+                        </tr>
+                    </tbody>
+                </table>
+                <br>                
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <!-- SHAP Explanation -->
+    <div class="card">
+        <div class="card-header">SHAP Explanation</div>
+        <div class="card-body">
+            <h5 class="card-title">SHAP Importance Values Visualization</h5>
+            <div class="col-md-6">
+                <div id="shapImage" name="shapImage">
+                    <!-- shap plot automatically generate -->
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <br><br>
+
+</div>
+{% endblock %}
+
+<!-- javascript external files -->
+{% block javascripts %}
+    <script src = "{% static 'js/index.js' %}"></script>
+{% endblock %}
