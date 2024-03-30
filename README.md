@@ -27,7 +27,12 @@ Benchmark of regression models to predict real time using of computational resou
   - Class for inference operations: inference_controller.py  
   - Jupyter notebook with MLOps: task01_scc_perform_v6.ipynb  
   - File example to use inference engine: test.py
-   
+
+* System interface:
+    
+  ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/218f3b75-12c4-4e7a-bf28-a1f38f87af12)
+
+
 * Results:
   - task01_scc  
      
