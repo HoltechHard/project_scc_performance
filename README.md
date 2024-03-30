@@ -1,10 +1,10 @@
-# Project SCC time performance
+# Project SCC time use performance
 
 ### Task 01  
 Benchmark of regression models to predict real time using of computational resources in SCC Polytech  
  
 * Projects:
-  - app_scc_performance: AI-system for time prediction in python + django + html + jquery
+  - app_scc_performance: AI-system for SCC time prediction in python + django + sklean + html + jquery
   - task01_scc: MLOps for regression using time elapsed (in seconds)  
   - task01_scc_v2: MLOps for regression using logarithm10 scale for times of limit, elapsed and wait (in seconds)  
   
@@ -34,14 +34,16 @@ Benchmark of regression models to predict real time using of computational resou
 
 
 * Results:
-  - task01_scc  
+  - task01_scc: prediction of time elapsed    
      
   ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/8f5c0f41-542a-4c42-bfe1-4f9499cb7454)  
 
-  - task01_scc_v2  
+  - task01_scc_v2: prediction of logarithm of time elapsed  
    
   ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/7bccb2ff-940c-4685-8904-f32343bbd06d)  
   
+  - SHAP vector of 10 most important features  
 
+  ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/ebb7f4c7-bfae-4c47-b45b-8f5d4abdf283)
 
 
