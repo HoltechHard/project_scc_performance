@@ -4,8 +4,9 @@
 Benchmark of regression models to predict real time using of computational resources in SCC Polytech  
  
 * Projects:
-  - task01_scc: regression using time elapsed (in seconds)  
-  - task01_scc_v2: regression using logarithm10 scale for times of limit, elapsed and wait (in seconds)   
+  - app_scc_performance: AI-system for time prediction in python + django + html + jquery
+  - task01_scc: MLOps for regression using time elapsed (in seconds)  
+  - task01_scc_v2: MLOps for regression using logarithm10 scale for times of limit, elapsed and wait (in seconds)  
   
 * Models:  
   The models can download in the next link:  
