@@ -1,7 +1,7 @@
-# Project SCC time use performance
+# Project SCC Polytech  
 
 ### Task 01  
-Benchmark of regression models to predict real time using of computational resources in SCC Polytech  
+AI-system based on benchmark of regression models to predict time use of computational resources in SCC Polytech
  
 * Projects:
   - app_scc_performance: AI-system for SCC time prediction in python + django + sklean + html + jquery
