@@ -32,7 +32,8 @@ Benchmark of regression models to predict real time using of computational resou
     
   ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/218f3b75-12c4-4e7a-bf28-a1f38f87af12)
 
-
+  Observations: Currently, system is integrated just for models and metadata of task01_scc  
+  
 * Results:
   - task01_scc: prediction of time elapsed    
      
