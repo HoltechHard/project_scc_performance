@@ -31,12 +31,14 @@ AI-system based on benchmark of regression models to predict time use of computa
 * System interface:
     
   ![image](https://github.com/HoltechHard/project_scc_performance/assets/35493202/218f3b75-12c4-4e7a-bf28-a1f38f87af12)
-
-  Instructions: To run system, run the next commands
-  $ cd app_scc_performance
-  $ python manage.py runserver
-    
-  Observations: Currently, system is integrated just for models and metadata of task01_scc  
+   
+  Instructions:  
+  To run system, run the next commands   
+  $ cd app_scc_performance  
+  $ python manage.py runserver  
+     
+  Observations:  
+  Currently, system is integrated just for models and metadata of task01_scc  
     
 * Results:
   - task01_scc: prediction of time elapsed    
